@@ -1,0 +1,170 @@
+{
+  "products": [
+    {
+      "id": "racao_basica",
+      "name": "Ração Básica",
+      "emoji": "🥣",
+      "price": 50,
+      "category": "comida",
+      "description": "Alimenta seu mascote por 24h. Mantém o pet saciado!",
+      "stock": -1
+    },
+    {
+      "id": "racao_premium",
+      "name": "Ração Premium",
+      "emoji": "🍖",
+      "price": 150,
+      "category": "comida",
+      "description": "Alimenta e deixa seu mascote super feliz por 48h!",
+      "stock": -1
+    },
+    {
+      "id": "petisco",
+      "name": "Petisco Especial",
+      "emoji": "🍪",
+      "price": 80,
+      "category": "comida",
+      "description": "Um petisco delicioso que aumenta o humor do pet!",
+      "stock": -1
+    },
+    {
+      "id": "touca_natal",
+      "name": "Touca de Natal",
+      "emoji": "🎄",
+      "price": 300,
+      "category": "roupa",
+      "description": "Uma touca festiva e natalina para o seu pet brilhar!",
+      "stock": -1
+    },
+    {
+      "id": "camiseta_azul",
+      "name": "Camiseta Azul",
+      "emoji": "👕",
+      "price": 200,
+      "category": "roupa",
+      "description": "Uma camisetinha estilosa na cor azul para seu pet.",
+      "stock": -1
+    },
+    {
+      "id": "fantasia_heroi",
+      "name": "Fantasia de Herói",
+      "emoji": "🦸",
+      "price": 500,
+      "category": "roupa",
+      "description": "Seu pet vira um super-herói com essa fantasia incrível!",
+      "stock": -1
+    },
+    {
+      "id": "oculos_sol",
+      "name": "Óculos de Sol",
+      "emoji": "😎",
+      "price": 250,
+      "category": "acessorio",
+      "description": "Para o pet mais estiloso e descolado do grupo!",
+      "stock": -1
+    },
+    {
+      "id": "coleira_dourada",
+      "name": "Coleira Dourada",
+      "emoji": "✨",
+      "price": 400,
+      "category": "acessorio",
+      "description": "Uma coleira de luxo para pets de alto status!",
+      "stock": -1
+    },
+    {
+      "id": "arco_flor",
+      "name": "Arco de Flores",
+      "emoji": "🌸",
+      "price": 180,
+      "category": "acessorio",
+      "description": "Um arco floral charmoso para pets fofos!",
+      "stock": -1
+    },
+    {
+      "id": "bola_borracha",
+      "name": "Bola de Borracha",
+      "emoji": "🎾",
+      "price": 100,
+      "category": "brinquedo",
+      "description": "Brinquedo favorito dos pets! Aumenta a felicidade.",
+      "stock": -1
+    },
+    {
+      "id": "arranhador",
+      "name": "Arranhador",
+      "emoji": "🪵",
+      "price": 200,
+      "category": "brinquedo",
+      "description": "Perfeito para gatos e animais que gostam de arranhar!",
+      "stock": -1
+    },
+    {
+      "id": "adocao_gato",
+      "name": "Adotar Gato 🐱",
+      "emoji": "🐱",
+      "price": 500,
+      "category": "mascote",
+      "description": "Adote um gatinho laranja super fofo como mascote!",
+      "stock": -1
+    },
+    {
+      "id": "adocao_cachorro",
+      "name": "Adotar Cachorro 🐶",
+      "emoji": "🐶",
+      "price": 500,
+      "category": "mascote",
+      "description": "Adote um cachorrinho golden retriever como mascote!",
+      "stock": -1
+    },
+    {
+      "id": "adocao_papagaio",
+      "name": "Adotar Papagaio 🦜",
+      "emoji": "🦜",
+      "price": 600,
+      "category": "mascote",
+      "description": "Adote um papagaio colorido e falante como mascote!",
+      "stock": -1
+    },
+    {
+      "id": "adocao_coelho",
+      "name": "Adotar Coelho 🐰",
+      "emoji": "🐰",
+      "price": 450,
+      "category": "mascote",
+      "description": "Adote um coelhinho branco megafofo como mascote!",
+      "stock": -1
+    },
+    {
+      "id": "adocao_hamster",
+      "name": "Adotar Hamster 🐹",
+      "emoji": "🐹",
+      "price": 350,
+      "category": "mascote",
+      "description": "Adote um hamster dourado de bochechas gordas!",
+      "stock": -1
+    },
+    {
+      "id": "adocao_raposa",
+      "name": "Adotar Raposa 🦊",
+      "emoji": "🦊",
+      "price": 700,
+      "category": "mascote",
+      "description": "Adote uma raposinha laranja rara e especial!",
+      "stock": -1
+    },
+    { "id": "mc_bronze_figurinha",  "name": "Figurinha Bronze",   "emoji": "☕🃏", "price": 500,  "category": "colecionavel", "description": "Figurinha Metrocasa Bronze. /colecionaveis usar mc_bronze_figurinha", "stock": -1 },
+    { "id": "mc_bronze_banner",     "name": "Banner Bronze",      "emoji": "☕🖼️", "price": 800,  "category": "colecionavel", "description": "Banner de perfil Bronze Metrocasa com seus dados.", "stock": -1 },
+    { "id": "mc_bronze_wallpaper",  "name": "Wallpaper Bronze",   "emoji": "☕🎨", "price": 600,  "category": "colecionavel", "description": "Papel de parede Bronze Metrocasa exclusivo.", "stock": -1 },
+    { "id": "mc_silver_figurinha",  "name": "Figurinha Silver",   "emoji": "🥈🃏", "price": 1200, "category": "colecionavel", "description": "Figurinha Metrocasa Silver exclusiva.", "stock": -1 },
+    { "id": "mc_silver_banner",     "name": "Banner Silver",      "emoji": "🥈🖼️", "price": 1800, "category": "colecionavel", "description": "Banner de perfil Silver Metrocasa com seus dados.", "stock": -1 },
+    { "id": "mc_silver_wallpaper",  "name": "Wallpaper Silver",   "emoji": "🥈🎨", "price": 1400, "category": "colecionavel", "description": "Papel de parede Silver Metrocasa exclusivo.", "stock": -1 },
+    { "id": "mc_ouro_figurinha",    "name": "Figurinha Ouro",     "emoji": "🥇🃏", "price": 2500, "category": "colecionavel", "description": "Figurinha Metrocasa Ouro de elite.", "stock": -1 },
+    { "id": "mc_ouro_banner",       "name": "Banner Ouro",        "emoji": "🥇🖼️", "price": 3500, "category": "colecionavel", "description": "Banner de perfil Ouro Metrocasa com seus dados.", "stock": -1 },
+    { "id": "mc_ouro_wallpaper",    "name": "Wallpaper Ouro",     "emoji": "🥇🎨", "price": 3000, "category": "colecionavel", "description": "Papel de parede Ouro Metrocasa exclusivo.", "stock": -1 },
+    { "id": "mc_diamante_figurinha","name": "Figurinha Diamante", "emoji": "💎🃏", "price": 5000, "category": "colecionavel", "description": "Figurinha ULTRA RARA Metrocasa Diamante.", "stock": -1 },
+    { "id": "mc_diamante_banner",   "name": "Banner Diamante",    "emoji": "💎🖼️", "price": 7000, "category": "colecionavel", "description": "Banner Diamante premium com seus dados.", "stock": -1 },
+    { "id": "mc_diamante_wallpaper","name": "Wallpaper Diamante", "emoji": "💎🎨", "price": 6000, "category": "colecionavel", "description": "Papel de parede Diamante — o mais exclusivo!", "stock": -1 }
+  ]
+}
+

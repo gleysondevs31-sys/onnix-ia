@@ -1,0 +1,36 @@
+{
+  "botName": "ONNX IA",
+  "botPhoneNumber": "5511913494837",
+  "owners": ["5511913494837@s.whatsapp.net", "559491569380@s.whatsapp.net"],
+  "admins": [],
+  "owner": "Connor",
+  "language": "pt-BR",
+  "isTestMode": false,
+  "isSilentMode": false,
+
+  "apis": {
+    "nvidiaKey": "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",
+    "nvidiaModel": "meta/llama-3.1-70b-instruct"
+  },
+  "behavior": {
+    "allowedGroups": [],
+    "maxMessagesPerMinute": 30,
+    "categories": {
+      "motivational": true,
+      "sales": true,
+      "productivity": true,
+      "humor": true
+    },
+    "schedules": {
+      "goodMorningWindow": ["07:00", "09:00"],
+      "dailyChallengeTime": "12:00",
+      "dailyQuoteTime": "18:00"
+    }
+  },
+  "messages": {
+    "welcome": "Olá, eu sou a {botName} 🤖\nFui criada por {owner} para ajudar vocês com interação, conteúdo diário, desafios e utilidades dentro do grupo.\nTodos os dias eu posso trazer frases, brincadeiras, desafios e recursos inteligentes para deixar a comunidade mais ativa e organizada.\n\nUse /menu para ver tudo o que eu posso fazer.",
+    "greetingMorning": "Bom dia pessoal! Que o dia de vocês seja abençoado e muito produtivo! 🌅",
+    "greetingAfternoon": "Boa tarde pessoal! Como está sendo a tarde de vocês? ☀️",
+    "greetingEvening": "Boa noite grupo! Descansem e preparem-se para um ótimo dia que está por vir! 🌙"
+  }
+}
