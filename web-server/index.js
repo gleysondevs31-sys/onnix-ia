@@ -12,6 +12,7 @@ import fs from 'fs';
 import { fileURLToPath } from 'url';
 import { createConnection } from '../src/core/connection.js';
 import eventHandler from '../src/events/EventHandler.js';
+import { startScheduler } from '../src/schedulers/scheduler.js';
 import logger from '../src/utils/logger.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -59,6 +60,9 @@ app.post('/api/bot/connect', async (req, res) => {
         if (update.connection === 'open') {
           botStatus = 'connected';
           io.emit('status', { status: botStatus });
+          // Iniciar scheduler quando bot conectar
+          startScheduler(botInstance);
+          logger.info('📅 Scheduler iniciado');
         } else if (update.connection === 'close') {
           botStatus = 'disconnected';
           io.emit('status', { status: botStatus });
@@ -250,6 +254,61 @@ app.get('/api/groups', (req, res) => {
     }));
 
     res.json({ groups: groupsList, total: groupsList.length });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// API Routes - Config Management
+app.get('/api/config', (req, res) => {
+  try {
+    const configPath = path.join(process.cwd(), 'config', 'config.json');
+    const configData = fs.readFileSync(configPath, 'utf8');
+    const config = JSON.parse(configData);
+    
+    // Remover dados sensíveis
+    const safeConfig = {
+      ...config,
+      apis: config.apis ? {
+        ...config.apis,
+        nvidiaKey: config.apis.nvidiaKey ? '***HIDDEN***' : null
+      } : {}
+    };
+    
+    res.json(safeConfig);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+app.put('/api/config', (req, res) => {
+  try {
+    const newConfig = req.body;
+    const configPath = path.join(process.cwd(), 'config', 'config.json');
+    
+    // Ler configuração atual
+    const currentConfig = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+    
+    // Mesgar com novas configurações
+    const updatedConfig = {
+      ...currentConfig,
+      ...newConfig
+    };
+    
+    // Salvar
+    fs.writeFileSync(configPath, JSON.stringify(updatedConfig, null, 2));
+    
+    res.json({ 
+      success: true, 
+      message: 'Configurações atualizadas com sucesso',
+      config: {
+        ...updatedConfig,
+        apis: {
+          ...updatedConfig.apis,
+          nvidiaKey: '***HIDDEN***'
+        }
+      }
+    });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

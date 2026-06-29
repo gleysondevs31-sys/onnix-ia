@@ -13,6 +13,14 @@ Painel web completo para gerenciar o bot ONNX IA com controle total de sessões,
 - Conectar/Desconectar bot WhatsApp
 - Exibir QR Code para autenticação
 - Status em tempo real via Socket.io
+- Código de pareamento (se número configurado)
+
+### Configurações
+- Configurar nome do bot
+- Configurar número do bot para código de pareamento
+- Configurar dono (owner)
+- Configurar chave API NVIDIA
+- Configurar modelo NVIDIA
 
 ### Gerenciamento de Sessões
 - Listar todas as sessões do bot
@@ -78,6 +86,10 @@ public/
 ### Bot Control
 - `POST /api/bot/connect` - Conectar bot
 - `POST /api/bot/disconnect` - Desconectar bot
+
+### Config
+- `GET /api/config` - Obter configurações
+- `PUT /api/config` - Atualizar configurações
 
 ### Sessions
 - `GET /api/sessions` - Listar sessões

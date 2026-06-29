@@ -189,6 +189,9 @@
                     <a class="nav-link" href="#" onclick="showSection('bot')">
                         <i class="fas fa-robot"></i> Bot
                     </a>
+                    <a class="nav-link" href="#" onclick="showSection('config')">
+                        <i class="fas fa-cog"></i> Configurações
+                    </a>
                     <a class="nav-link" href="#" onclick="showSection('sessions')">
                         <i class="fas fa-key"></i> Sessões
                     </a>
@@ -281,6 +284,44 @@
                                     <i class="fas fa-check-circle me-2"></i>Bot conectado com sucesso!
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Config Section -->
+                <div id="configSection" class="section" style="display: none;">
+                    <h2 class="mb-4">Configurações do Bot</h2>
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-cog me-2"></i>Configurações Gerais
+                        </div>
+                        <div class="card-body">
+                            <form id="configForm">
+                                <div class="mb-3">
+                                    <label class="form-label">Nome do Bot</label>
+                                    <input type="text" class="form-control" id="botName" name="botName">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Número do Bot (para código de pareamento)</label>
+                                    <input type="text" class="form-control" id="botPhoneNumber" name="botPhoneNumber" placeholder="5511913494837">
+                                    <small class="text-muted">Formato: 55DDDNUMERO (sem + ou espaços)</small>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Dono (Owner)</label>
+                                    <input type="text" class="form-control" id="owner" name="owner">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Chave API NVIDIA</label>
+                                    <input type="password" class="form-control" id="nvidiaKey" name="nvidiaKey">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Modelo NVIDIA</label>
+                                    <input type="text" class="form-control" id="nvidiaModel" name="nvidiaModel">
+                                </div>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-save me-2"></i>Salvar Configurações
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>

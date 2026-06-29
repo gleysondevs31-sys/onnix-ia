@@ -165,6 +165,13 @@ commandRegistry.register(eununcaCmd);
 // 3. Subir e orquestrar infraestrutura
 async function bootstrap() {
   try {
+    // Se WEB_MODE=true, não conectar automaticamente (painel web controla)
+    if (process.env.WEB_MODE === 'true') {
+      logger.info('🌐 Modo Web ativado - Bot aguardando conexão via painel administrativo');
+      logger.info('📊 Acesse o painel em http://localhost:3000 para conectar o bot');
+      return;
+    }
+
     // O eventHandler passa como injetor de depedência pra ser acoplado no baileys
     const sock = await createConnection(eventHandler);
     

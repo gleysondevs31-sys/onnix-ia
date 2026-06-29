@@ -33,6 +33,7 @@ function showSection(sectionId) {
     if (sectionId === 'groups') loadGroups();
     if (sectionId === 'stats') loadDetailedStats();
     if (sectionId === 'dashboard') loadStats();
+    if (sectionId === 'config') loadConfig();
 }
 
 function updateStatus(status) {
@@ -333,6 +334,57 @@ async function loadDetailedStats() {
         console.error('Erro ao carregar estatísticas detalhadas:', e);
     }
 }
+
+// Config Management
+async function loadConfig() {
+    try {
+        const res = await fetch('/api/config');
+        const config = await res.json();
+        
+        document.getElementById('botName').value = config.botName || '';
+        document.getElementById('botPhoneNumber').value = config.botPhoneNumber || '';
+        document.getElementById('owner').value = config.owner || '';
+        document.getElementById('nvidiaKey').value = config.apis?.nvidiaKey || '';
+        document.getElementById('nvidiaModel').value = config.apis?.nvidiaModel || '';
+    } catch (e) {
+        console.error('Erro ao carregar configurações:', e);
+    }
+}
+
+async function saveConfig(e) {
+    e.preventDefault();
+    
+    const config = {
+        botName: document.getElementById('botName').value,
+        botPhoneNumber: document.getElementById('botPhoneNumber').value,
+        owner: document.getElementById('owner').value,
+        apis: {
+            nvidiaKey: document.getElementById('nvidiaKey').value,
+            nvidiaModel: document.getElementById('nvidiaModel').value
+        }
+    };
+    
+    try {
+        const res = await fetch('/api/config', {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(config)
+        });
+        
+        const data = await res.json();
+        
+        if (data.success) {
+            alert('Configurações salvas com sucesso!');
+        } else {
+            alert('Erro: ' + data.error);
+        }
+    } catch (e) {
+        alert('Erro ao salvar configurações: ' + e.message);
+    }
+}
+
+// Config form submit
+document.getElementById('configForm').addEventListener('submit', saveConfig);
 
 // Utility Functions
 function formatBytes(bytes) {
