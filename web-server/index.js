@@ -1,6 +1,7 @@
 /**
  * Web Server Completo - ONNX IA Admin
  * Servidor Express com gerenciamento completo de sessões e usuários
+ * Integra o bot internamente para rodar em um único processo
  */
 
 import express from 'express';
@@ -14,6 +15,8 @@ import { createConnection } from '../src/core/connection.js';
 import eventHandler from '../src/events/EventHandler.js';
 import { startScheduler } from '../src/schedulers/scheduler.js';
 import logger from '../src/utils/logger.js';
+import { registerCommands } from '../src/commands/index.js';
+import commandRegistry from '../src/commands/CommandRegistry.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -34,6 +37,11 @@ let botStatus = 'disconnected';
 // Paths
 const SESSIONS_DIR = path.join(process.cwd(), 'data', 'sessions');
 const DATA_DIR = path.join(process.cwd(), 'data');
+
+// Registrar comandos do bot (para quando conectar)
+logger.info('📚 Registrando comandos do bot...');
+registerCommands();
+logger.info(`✅ ${commandRegistry.size} comandos registrados`);
 
 // API Routes - Status
 app.get('/api/status', (req, res) => {

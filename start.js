@@ -1,5 +1,5 @@
 /**
- * Start Script - Inicia Bot e Servidor Web simultaneamente
+ * Start Script - Inicia Servidor Web (que controla o bot)
  */
 
 import { spawn } from 'child_process';
@@ -10,42 +10,25 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 console.log('==================================');
-console.log(' INICIANDO ONNX IA + PAINEL WEB ');
+console.log(' INICIANDO PAINEL WEB ONNX IA ');
 console.log('==================================\n');
 
-// Iniciar o bot em modo web (não conecta automaticamente)
-const botProcess = spawn('node', ['index.js'], {
+// Iniciar apenas o servidor web (ele controla o bot)
+const webProcess = spawn('node', ['web-server/index.js'], {
   cwd: __dirname,
   stdio: 'inherit',
   shell: true,
   env: { ...process.env, WEB_MODE: 'true' }
 });
 
-botProcess.on('close', (code) => {
-  console.log(`[BOT] Processo encerrado com código ${code}`);
+webProcess.on('close', (code) => {
+  console.log(`[WEB] Processo encerrado com código ${code}`);
   process.exit(code);
 });
 
-// Aguardar um momento antes de iniciar o servidor web
-setTimeout(() => {
-  console.log('\n🌐 Iniciando servidor web...\n');
-  
-  const webProcess = spawn('node', ['web-server/index.js'], {
-    cwd: __dirname,
-    stdio: 'inherit',
-    shell: true
-  });
-
-  webProcess.on('close', (code) => {
-    console.log(`[WEB] Processo encerrado com código ${code}`);
-  });
-
-  // Quando o processo principal terminar, encerrar ambos
-  process.on('SIGINT', () => {
-    console.log('\n\n🛑 Encerrando processos...');
-    botProcess.kill();
-    webProcess.kill();
-    process.exit();
-  });
-
-}, 2000); // 2 segundos de delay para o bot iniciar primeiro
+// Quando o processo principal terminar, encerrar o servidor web
+process.on('SIGINT', () => {
+  console.log('\n\n🛑 Encerrando servidor web...');
+  webProcess.kill();
+  process.exit();
+});

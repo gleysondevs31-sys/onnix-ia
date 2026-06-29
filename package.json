@@ -7,8 +7,7 @@
     "start": "node index.js",
     "dev": "node --watch index.js",
     "web": "node web-server/index.js",
-    "web:dev": "node --watch web-server/index.js",
-    "start:all": "node start.js"
+    "web:dev": "node --watch web-server/index.js"
   },
   "author": "GleysonDevs (Connor)",
   "license": "ISC",
