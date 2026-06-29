@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: onnx-ia
+    env: node
+    buildCommand: npm install --legacy-peer-deps --timeout=180000
+    startCommand: npm run start:all
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: WEB_MODE
+        value: true
+      - key: NODE_ENV
+        value: production
+    healthCheckPath: /
