@@ -21,14 +21,6 @@ const botProcess = spawn('node', ['index.js'], {
   env: { ...process.env, WEB_MODE: 'true' }
 });
 
-botProcess.stdout.on('data', (data) => {
-  console.log(`[BOT] ${data}`);
-});
-
-botProcess.stderr.on('data', (data) => {
-  console.error(`[BOT ERROR] ${data}`);
-});
-
 botProcess.on('close', (code) => {
   console.log(`[BOT] Processo encerrado com código ${code}`);
   process.exit(code);
@@ -42,14 +34,6 @@ setTimeout(() => {
     cwd: __dirname,
     stdio: 'inherit',
     shell: true
-  });
-
-  webProcess.stdout.on('data', (data) => {
-    console.log(`[WEB] ${data}`);
-  });
-
-  webProcess.stderr.on('data', (data) => {
-    console.error(`[WEB ERROR] ${data}`);
   });
 
   webProcess.on('close', (code) => {
