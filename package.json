@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "dev": "node --watch index.js",
-    "web": "node web-server/index.js",
-    "web:dev": "node --watch web-server/index.js"
+    "web": "node server.js",
+    "web:dev": "node --watch server.js"
   },
   "author": "GleysonDevs (Connor)",
   "license": "ISC",

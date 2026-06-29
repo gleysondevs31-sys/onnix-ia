@@ -3,7 +3,7 @@ services:
     name: onnx-ia
     env: node
     buildCommand: npm install --legacy-peer-deps --timeout=180000
-    startCommand: npm run web
+    startCommand: node server.js
     envVars:
       - key: PORT
         value: 10000
