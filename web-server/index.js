@@ -11,15 +11,17 @@ import cors from 'cors';
 import path from 'path';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
-import { createConnection } from '../src/core/connection.js';
-import eventHandler from '../src/events/EventHandler.js';
-import { startScheduler } from '../src/schedulers/scheduler.js';
-import logger from '../src/utils/logger.js';
-import { registerCommands } from '../src/commands/index.js';
-import commandRegistry from '../src/commands/CommandRegistry.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const PROJECT_ROOT = process.cwd();
+
+import { createConnection } from `${PROJECT_ROOT}/src/core/connection.js`;
+import eventHandler from `${PROJECT_ROOT}/src/events/EventHandler.js`;
+import { startScheduler } from `${PROJECT_ROOT}/src/schedulers/scheduler.js`;
+import logger from `${PROJECT_ROOT}/src/utils/logger.js`;
+import { registerCommands } from `${PROJECT_ROOT}/src/commands/index.js`;
+import commandRegistry from `${PROJECT_ROOT}/src/commands/CommandRegistry.js`;
 
 const app = express();
 const httpServer = createServer(app);
